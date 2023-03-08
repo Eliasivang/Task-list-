@@ -11,7 +11,7 @@ function TaskItem(props) {
             <button 
             onClick={()=>{props.completeTask(props.id)}} className= {props.completed && 'text-green-700'}><AiFillCheckSquare className='m-2 text-3xl'/>
             </button>
-            <p className={props.completed && 'line-through'}>
+            <p className=  {props.completed && "line-through"}>
               {props.title}
             </p>
         </div>

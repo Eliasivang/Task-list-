@@ -11,7 +11,7 @@ import Title from './Components/Title';
 import  tasksImg from './assets/img/tasks.svg'
 import Footer from './Components/Footer';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 function App() {
@@ -22,12 +22,12 @@ function App() {
   const taskLength = tasks.length;
   const taskCompleted = tasks.filter(task=> !!task.completed).length;
 
- 
+  function setTasksSave(newTasks){
+    setTasks(newTasks);
+    localStorage.setItem("tasks", JSON.stringify(newTasks))
+  }
 
  
-
- 
-
 
   
   let searchedTasks = [];
@@ -49,9 +49,20 @@ function App() {
         title: task,
         completed :false
       })
-      setTasks(newTasks);
+      setTasksSave(newTasks);
       setTask('');
     }
+    function localSavedTasks(){
+      const saved = localStorage.getItem("tasks");
+      if(saved){
+        setTasksSave(JSON.parse(saved))
+      }
+    }
+
+    useEffect(()=>{
+      localSavedTasks();
+    },[])
+
 
 
     const completeTask = (id) => {
@@ -63,17 +74,15 @@ function App() {
 
           }else newTasks[taskIndex].completed =true;
         
-          setTasks(newTasks);
+          setTasksSave(newTasks);
     }
 
     const deleteTask =  (id) => {
       const updatedTasks = tasks.filter((task) =>task.id != id);
-      setTasks(updatedTasks);
+      setTasksSave(updatedTasks);
     }
 
-  
-    console.log(tasks);
-  
+   
   return (
     <div className="App">
           
