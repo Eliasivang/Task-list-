@@ -27,9 +27,6 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(newTasks))
   }
 
- 
-
-  
   let searchedTasks = [];
     if(!search.length >=1 ){
       searchedTasks = tasks;
@@ -52,6 +49,7 @@ function App() {
       setTasksSave(newTasks);
       setTask('');
     }
+////////////// LOCAL STORAGE
     function localSavedTasks(){
       const saved = localStorage.getItem("tasks");
       if(saved){
@@ -63,7 +61,7 @@ function App() {
       localSavedTasks();
     },[])
 
-
+////////////////////////////
 
     const completeTask = (id) => {
       const taskIndex = tasks.findIndex((task)=> task.id === id)
@@ -78,7 +76,7 @@ function App() {
     }
 
     const deleteTask =  (id) => {
-      const updatedTasks = tasks.filter((task) =>task.id != id);
+      const updatedTasks = tasks.filter((task) =>task.id !== id);
       setTasksSave(updatedTasks);
     }
 
@@ -94,7 +92,7 @@ function App() {
                   setTask={setTask} 
                   task= {task}/>
                   <Button addTasks={addTasks} task={task}/>
-                  <img className='hidden m-auto sm:block sm:h-80 sm:w-80 ' src={tasksImg}/>
+                  <img className='hidden m-auto sm:block sm:h-80 sm:w-80 ' src={tasksImg} alt= "TaskList"/>
               </div> 
               <div className='flex flex-col w-full sm:w-1/3 bg-opacity-60'>
                   <TaskCounter 
