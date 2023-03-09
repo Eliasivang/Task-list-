@@ -13,6 +13,7 @@ function InputTask(props) {
         placeholder='Watch GoodFellas'
         onChange = {onChangeValue}
         value= {props.task}
+        maxLength = {30}
          
         />
     </>

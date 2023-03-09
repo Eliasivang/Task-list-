@@ -61,7 +61,7 @@ function App() {
       localSavedTasks();
     },[])
 
-////////////////////////////
+/////////////////////////////
 
     const completeTask = (id) => {
       const taskIndex = tasks.findIndex((task)=> task.id === id)
@@ -85,8 +85,8 @@ function App() {
     <div className="App">
           
           <Title/>
-          <div className='justify-center inline-block gap-5 mx-2 my-10 sm:my-16 sm:flex sm:m-0'>
-              <div className='flex flex-col w-full sm:w-1/3'>
+          <div className='justify-center inline-block gap-5 mx-2 my-10 sm:my-16 sm:flex lg:m-0'>
+              <div className='flex flex-col w-full lg:w-1/3'>
                   <Stitle/>
                   <InputTask 
                   setTask={setTask} 
@@ -94,7 +94,7 @@ function App() {
                   <Button addTasks={addTasks} task={task}/>
                   <img className='hidden m-auto sm:block sm:h-80 sm:w-80 ' src={tasksImg} alt= "TaskList"/>
               </div> 
-              <div className='flex flex-col w-full sm:w-1/3 bg-opacity-60'>
+              <div className='flex flex-col w-full lg:w-1/3 bg-opacity-60'>
                   <TaskCounter 
                   taskLength={taskLength} 
                   taskCompleted={taskCompleted}/>
