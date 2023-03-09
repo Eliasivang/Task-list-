@@ -8,7 +8,7 @@ function InputTask(props) {
     
   return (
     <>
-        <input className='h-12 p-2 my-3 border rounded shadow-md' 
+        <input className='h-12 p-2 my-2 border rounded shadow-md' 
         autoFocus 
         placeholder='Watch GoodFellas'
         onChange = {onChangeValue}
